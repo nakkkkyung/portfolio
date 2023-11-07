@@ -5,39 +5,11 @@ $(document).ready(function(){
       let sPos = $(window).scrollTop();
       console.log(sPos);
 
-      if(2427<=sPos){
+      if(900<=sPos){
           $('.gnb').css('opacity','1')
       }else{
           $('.gnb').css('opacity','0')
       }
-
-      if(700<=sPos){
-      // $('.mint').css({
-      //   'height':'2200px',
-      //   'bottom':'-1200px',
-      //   'transition':'2s'
-      // })
-      // $('.beige').css(
-      //   {
-      //     'height':'2080px',
-      //     'bottom':'-1000px',
-      //     'transition':'0.5s'
-      //   }
-      // )
-      $('.intro h2').css({
-        'opacity':'1',
-        'transition':'8.5s',
-        'z-index':'10'
-      })
-      }else{}
-      // $('.mint').css({
-      //   'bottom':'-280px',
-      //   'height':'500px'
-      // })
-      // $('.beige').css({
-      //   'bottom':'-350px',
-      //   'height':'500px'
-      // })}
 
       if(2425<=sPos){
       $('.skill_wrap div p').css({
@@ -77,6 +49,24 @@ $(document).ready(function(){
         clearInterval(tyInt); 
        } 
     }  
+    /*메뉴 클릭시 해당섹션이동*/ 
+    let gnb=$('.gnb li .circle');
+    gnb.click(function(){
+
+        let i=$(this).index()+2;
+        let d=$(this).index()+2;
+        console.log(i); //2,3,4,5,6...
+
+        if(i<=2){
+            $('html,body').animate({scrollTop:$('main section').eq(i).offset().top-50},400,'easeOutCubic');
+            return false;
+    
+        }else{
+            $('html,body').animate({scrollTop:$('main section').eq(d).offset().top-50},400,'easeOutCubic');
+            return false;
+        }
+
+    });
 
     });
 
