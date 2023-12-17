@@ -1,0 +1,35 @@
+body {
+	padding: 0;
+	margin: 0;
+	height: 300vh;
+	font-family: vortice-concept, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+#bubblezSVG {
+	position: fixed;
+	height: 100%;
+	width: 110%;
+	top: 900px;
+	left: -5%;
+	overflow: visible;
+	z-index: 1;
+}
+
+#top {
+	z-index: 2;
+	pointer-events: none;
+}
+
+svg {
+	font-size: 35px;
+	fill: #313639;
+}
+
+#textSVG {
+	position: fixed;
+	width: 110%;
+	top: 40vh;
+	left: -5%;
+}
