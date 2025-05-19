@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행사이트</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <!--애니메이션-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Bootstrap Icons 불러오기 (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+    .hero {
+      background-image: url('https://via.placeholder.com/1500x500?text=EDUVISIT+Hero+Image');
+      background-size: cover;
+      background-position: center;
+      height: 500px;
+    }
+    @media (max-width: 993px) {
+    .card-img-top {
+      width: 160px !important;
+      height: 225px !important;
+    }
+    .card {
+      width: 160px !important;
+    }
+    .card-body {
+      width: 160px !important;
+    }
+    .card-body small {
+      font-size: 11px !important;
+    }
+
+    .card-body h6 {
+      font-size: 15px !important;
+      padding-top: 15px !important;
+    }
+
+    .card-body p {
+      font-size: 12px !important;
+    }
+
+    .card-body .btn {
+      font-size: 12px !important;
+      padding: 6px 8px !important;
+    }
+  }
+  @media (min-width: 768px) {
+    .mt-md-custom {
+      margin-top: 75px !important;
+    }
+    
+  }
+  @media (max-width: 768px) {
+    .section.bg-white{
+      padding-top: 50px !important;
+      padding-bottom: 50px !important;
+    }
+    #navbarMenu {
+      background-color: rgb(255, 255, 255, 0.8);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .navbar-nav {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px !important;
+    }
+
+    .navbar-nav .nav-item {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .navbar-nav .nav-link {
+      font-size: 1.2rem;
+      padding: 0.75rem 1rem;
+      color: #0d6efd  !important;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover {
+      background-color: #b3d2ff;
+      color: #0d6efd  !important;
+    }
+
+    footer{
+      height: 290px !important;
+    }
+    footer>div {
+      padding-top: 60px !important;
+      padding-bottom: 60px !important;
+    }
+    
+    .main-hero-img {
+    height: 500px !important; /* 원하는 만큼 조절 */
+  }
+    .main-hero-text h2 {
+    font-size: clamp(2rem, 5vw, 40px) !important;
+    padding-bottom: 15px !important;
+  }
+
+  .main-hero-text p {
+    font-size: clamp(0.9rem, 2.5vw, 18px) !important;
+  }
+
+  .main-hero-text {
+    text-align: center !important;
+  }
+  .pb-reposive{
+    padding-bottom: 5px !important;
+  }
+  .n_top{
+    margin-top: 38px !important;
+  }
+  .sns_b{
+    margin-bottom: 20px !important;
+  }
+  .unes_bg{
+    height: 345px !important;
+  }
+  .nav-ani {
+      font-size: 18px;
+    }
+  footer h5 {
+      font-size: 20px !important;
+    }
+    footer a,
+    footer p {
+      font-size: 12px !important;
+    }
+  
+  }
+  body{
+    font-family: 'Pretendard' , sans-serif;
+  }
+  h2{
+    font-family: 'GangwonEduPowerExtraBoldA' , sans-serif;
+  }
+  .sns-hover-box {
+    position: relative;
+    overflow: hidden;
+    height: 146px;
+    border-radius: 0.5rem;
+  }
+
+  .sns-hover-box img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sns-caption {
+    position: absolute;
+    left: 0;
+    bottom: -100%;
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 0.85rem;
+    transition: all 0.4s ease;
+  }
+
+  .sns-hover-box:hover .sns-caption {
+    bottom: 0;
+  }
+  .custom-btn .icon-circle {
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .custom-btn:hover .icon-circle {
+    background-color: #fff !important;
+  }
+
+  .custom-btn:hover .icon-circle i {
+    color: #0d6efd !important;
+  }
+
+  .custom-btn {
+    font-size: 10px;
+    padding:10px 8px;
+  }
+  .section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+.section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animate {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+/* 왼쪽에서 등장 */
+.fade-in-left {
+  transform: translateX(-50px);
+}
+.fade-in-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 아래에서 등장 */
+.fade-in-up {
+  transform: translateY(50px);
+}
+.fade-in-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* 위로 올라오며 흐림에서 선명해짐 */
+.blur-in-up {
+  transform: translateY(30px);
+  filter: blur(8px);
+}
+.blur-in-up.active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* 딜레이 효과 */
+.delay-1 {
+  transition-delay: 0.3s;
+}
+.delay-2 {
+  transition-delay: 0.6s;
+}
+.delay-3 {
+  transition-delay: 0.9s;
+}
+.delay-4 {
+  transition-delay: 1.2s;
+}
+
+.btn-hover-grow {
+  transition: all 0.3s ease;
+  border-radius: 50%;
+}
+
+.btn-hover-grow:hover {
+  transform: scale(1.15);
+  background-color: #0d6efd; 
+}
+.btn-hover-grow:hover img {
+  opacity: 0.8;
+  filter: brightness(0) invert(1); /* 밝기 줄이고 색 반전 */
+}
+  /* 클릭 애니메이션 */
+  .nav-ani {
+    position: relative;
+    font-size: 20px;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .nav-ani:active {
+    transform: scale(0.95);
+  }
+
+  /* 밑줄 애니메이션 */
+  .nav-ani::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+
+  .nav-ani:hover::after {
+    width: 100%;
+    left: 0;
+  }
+
+  .nav-ani:hover {
+    color: #fff !important;
+  }
+  </style>
+</head>
+<body>
+
+   
+ 
+<!-- 헤더 -->
+<header class="position-absolute start-0 w-100 z-3" style="top: 55px;">
+  <nav class="navbar navbar-expand-md navbar-dark">
+    <div class="container" style="max-width: 1100px;">
+      <a class="navbar-brand fw-bold" href="#" style="font-size: 35px;">TRPVISIT</a>
+
+      <!-- 모바일 토글 버튼 -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- 네비게이션 메뉴 -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
+        <ul class="navbar-nav gap-5">
+          <li class="nav-item">
+            <a class="nav-link nav-ani text-white" href="#">제주야놀자</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-ani text-white" href="#">맛집</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-ani text-white" href="#">커뮤니티</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- PC에서만 보이는 관리자 -->
+      <div class="d-none d-md-block">
+        <a href="/admin" class="text-white d-flex align-items-center gap-2" style="font-size: 18px;">
+          관리자페이지
+          <img src="./img/admin_us.png" alt="관리자 아이콘" width="25" height="25">
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+  <!-- 메인 이미지 -->
+  <section class="position-relative">
+    <img src="./img/main.png" alt="Main Image" class="w-100 main-hero-img" style="height: 860px; object-fit: cover;">
+    <div class="position-absolute top-50 start-0 translate-middle-y w-100 px-3">
+      <div class="mx-auto" style="max-width: 1100px;">
+        <div class="text-white text-start main-hero-text">
+          <h2 class="text-start fw-bold mb-1 mb-md-2 animate__fadeInDown animate__slower"
+              style="font-size: clamp(2.5rem, 6vw, 70px); 
+                     font-family: GangwonEduPowerExtraBoldA; 
+                     color: #0486F6; 
+                     padding-bottom: 30px;
+                     transition: all 1s ease-in-out;">
+            JEJU ISLAND
+          </h2>
+        
+          <h2 class="text-start fw-semibold mb-1 mb-md-2 text-white animate__fadeInUp animate__delay-1s animate__slower"
+              style="font-size: clamp(2.5rem, 6vw, 70px); 
+                     padding-bottom: 25px;
+                     transition: all 1s ease-in-out;">
+            TRIP ROAD
+          </h2>
+        
+          <p class="text-start text-white animate__fadeInUp animate__delay-2s animate__slower"
+             style="font-size: clamp(1.8rem, 4vw, 30px);
+                    transition: all 1s ease-in-out;">
+            제주도에 오신걸 환영합니다
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+  <!-- section1 -->
+  <section class="section bg-white" style="padding-top: 112px; padding-bottom: 96px;">
+    <div class="container" style="max-width: 1100px;">
+      <div class="row align-items-end h-100">
+        <div class="col-md-2 text-md-start text-center d-flex align-items-end" style="height: 100%;">
+          <div>
+            <!-- 데스크탑 버전 -->
+            <h2 class="fw-bold mb-0 d-none d-md-block animate fade-in-left" style="font-size: clamp(2rem, 5vw, 50px);">
+              WELCOME,
+            </h2>
+            <h2 class="fw-bold text-primary mb-0 d-none d-md-block animate fade-in-up" style="font-size: clamp(2rem, 5vw, 50px);">
+              JEJU
+            </h2>
+            <!-- 모바일 버전 -->
+            <h2 class="fw-bold mb-2 d-block d-md-none animate fade-in-up" style="font-size: clamp(2rem, 5vw, 50px);">
+              WELCOME, <span style="color: #0486F6;">JEJU</span>
+            </h2>
+          </div>
+        </div>
+        <div class="col-md-8 d-flex align-items-end animate fade-in-left" style="height: 100%;">
+          <div>
+            <p class="mb-0 d-none d-md-block animate fade-in-left" style="font-size: clamp(1.25rem, 2.5vw, 15px);">
+              편리하고 편안한 제주로의 여행! 제주 여행정보의 모든 것을 알려드립니다.
+            </p>
+            <p class="mb-0 d-block d-md-none animate fade-in-left" style="font-size: clamp(1rem, 2.5vw, 15px);">
+              편리하고 편안한 제주로의 여행! 제주 여행정보의 모든 것을 알려드립니다.
+            </p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- 카드 섹션 -->
+      <div class="row g-0 mt-5">
+        <div class="col-md-4 section animate fade-in-up delay-1">
+          <div class="position-relative overflow-hidden " style="height: 430px;">
+            <img src="./img/sec1.png" class="w-100 h-100 object-fit-cover" alt="유네스코">
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-white text-center p-3">
+              <p class="mb-3" style="font-size: 13px;">세계가 인정한 제주도의 자연, 문화, 그리고 조화</p>
+              <h1 style="font-size: 35px;">유네스코</h1>
+              <button class="btn btn-hover-grow mt-3 d-flex justify-content-center align-items-center border-0 bg-transparent p-0" 
+                      style="width: 60px; height: 60px;">
+                <img src="./img/more.png" alt="더보기 버튼" class="w-100 h-100">
+                </button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4 section animate fade-in-up delay-2">
+          <div style="height: 430px; background: linear-gradient(70deg, #0486f6, #19cfc0);" 
+               class="d-flex justify-content-center align-items-center text-white text-center">
+            <div style="width: 95%; height: 95%; border: 1px solid rgba(255, 255, 255, 0.7); 
+                        display: flex; flex-direction: column; justify-content: center; align-items: center;">
+              <p class="mb-4" style="font-size: 35px;">JEJU ISLAND</p>
+              <p style="font-size: 35px;">제주</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4 section animate fade-in-up delay-3">
+          <div class="position-relative  overflow-hidden" style="height: 430px;">
+            <img src="./img/sec3.png" class="w-100 h-100 object-fit-cover" alt="해수욕장">
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-white text-center p-3">
+              <p class="mb-3" style="font-size: 13px;">세계가 인정한 제주도의 자연, 문화, 그리고 조화</p>
+              <p style="font-size: 35px;">해수욕장</p>
+                <button class="btn btn-hover-grow mt-3 d-flex justify-content-center align-items-center border-0 bg-transparent p-0" 
+                      style="width: 60px; height: 60px;">
+                <img src="./img/more.png" alt="더보기 버튼" class="w-100 h-100">
+                </button>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </section>
+
+  <!-- section2 -->
+  <section class="section bg-white" style="padding-top: 26px; padding-bottom :112px;">
+    <div class="container" style="max-width: 1100px;">
+      <div class="pb-reposive d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-end border-bottom border-dark" style="padding-bottom: 30px;">
+        <h2 class="fw-bold mb-3 mb-md-0 animate fade-in-left"
+            style="font-size: clamp(2rem, 6vw, 50px);">
+          오늘의 <span class="text-primary">제주소식</span>
+        </h2>
+        <ul class="nav flex-row flex-md-row ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active px-2" href="#" 
+               style="font-size: clamp(1rem, 4.5vw, 25px); color: #0486F6;">
+              공지사항
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark px-2" href="#" 
+               style="font-size: clamp(16px, 4.5vw, 25px);">
+              Q&A
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+      
+  
+      <div class="row">
+        <div class="col-md-8  col-12">
+           <!-- 제목 영역 -->
+          <div class="n_top d-flex justify-content-between align-items-center" style="margin-top: 66px; margin-bottom: 20px;">
+            <p class="fw-bold mb-0" style="font-size: 30px;">공지사항</p>
+            <a href="#" class="text-primary fw-semibold d-none d-md-flex align-items-center ms-3" style="white-space: nowrap;">
+              더보기 <i class="bi bi-arrow-right-circle-fill ms-1"></i>
+            </a>
+          </div>
+          <ul class="list-unstyled">
+            <li class="d-flex justify-content-between border-bottom border-top"  style="padding-top:28px; padding-bottom:28px;">
+              <span>[샐럽들이 다녀간 부산 미식성지 원픽 이벤트] 당첨자 발표</span>
+              <span class="text-muted">2024-12-27</span>
+            </li>
+            <li class="d-flex justify-content-between border-bottom" style="padding-top:28px; padding-bottom:28px;">
+              <span>[샐럽들이 다녀간 부산 미식성지 원픽 이벤트] 당첨자 발표</span>
+              <span class="text-muted">2024-12-27</span>
+            </li>
+            <li class="d-flex justify-content-between border-bottom" style="padding-top:28px; padding-bottom:28px;">
+              <span>[샐럽들이 다녀간 부산 미식성지 원픽 이벤트] 당첨자 발표</span>
+              <span class="text-muted">2024-12-27</span>
+            </li>
+            <li class="d-flex justify-content-between border-bottom" style="padding-top:28px; padding-bottom:28px;">
+              <span>[샐럽들이 다녀간 부산 미식성지 원픽 이벤트] 당첨자 발표</span>
+              <span class="text-muted">2024-12-27</span>
+            </li>
+            <li class="d-flex justify-content-between border-bottom" style="padding-top:28px; padding-bottom:28px;">
+              <span>[샐럽들이 다녀간 부산 미식성지 원픽 이벤트] 당첨자 발표</span>
+              <span class="text-muted">2024-12-27</span>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- 오른쪽 포스터 -->
+<div class="col-md-4 col-12 mt-4 mt-md-0 d-none d-md-flex justify-content-md-end align-items-end">
+  <img src="./img/poster.png" alt="제주올레걷기축제" style="width: 302px; height: 422px; object-fit: cover;">
+</div>
+      </div>
+    </div>
+  </section>
+  <!-- section3 -->
+  <section 
+  class="section section-special position-relative text-white unes_bg"
+  style="height: 562px; background-image: url('./img/bg1.png'); background-size: cover; background-position: center;">
+  <div class="container position-relative z-1" style="max-width: 1100px; height: 100%;">
+    <div class="row h-100 align-items-center">
+      <div class="col-md-8 col-12">
+        <div>
+          <h2 class="fw-bold animate blur-in-up delay-1 d-none d-md-block" style="font-size: clamp(2rem, 5vw, 50px); line-height: 1.2;">
+            <span style="color: #0486F6;">유네스코</span>가 인정한<br>제주도의 자연유산
+          </h2>
+          <h2 class="fw-bold animate blur-in-up delay-1 d-block d-md-none" style="font-size: clamp(2rem, 5vw, 50px); line-height: 1.2;">
+            <span style="color: #0486F6;">유네스코</span>가 인정한<br>제주도의 자연유산
+          </h2>
+        </div>
+        <div>
+          <p class="mt-4 animate blur-in-up delay-2 d-none d-md-block" style="font-size: clamp(1.1rem, 5vw, 16px); line-height: 1.8;">
+            2007년 한라산, 성산일출봉, 거문오름 용암동굴계 등이 세계자연유산으로 등재.<br>
+            2002년 생물권보전지역 지정, 2010년 세계지질공원 인증.<br>
+            독특한 생태계와 아름다운 풍경을 보전하며, 자연과 사람이 공존하는 섬 제주.
+          </p>
+          <p class="mt-4 animate blur-in-up delay-2 d-block d-md-none" style="font-size: clamp(0.6rem, 5vw, 15px); line-height: 1.8;">
+            2007년 한라산, 성산일출봉, 거문오름 용암동굴계 등이 세계자연유산으로 등재.<br>
+            2002년 생물권보전지역 지정, 2010년 세계지질공원 인증.<br>
+            독특한 생태계와 아름다운 풍경을 보전하며, 자연과 사람이 공존하는 섬 제주.
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- section4 -->
+  <section class="section bg-white" style="padding-top: 112px; padding-bottom: 96px;">
+    <div class="container px-0" style="max-width: 1100px;">
+      <!-- 제목 -->
+      <div class="text-center mb-5">
+        <div>
+          <h2 class="fw-bold animate fade-in-left d-none d-md-block" style="font-size: clamp(2rem, 5vw, 50px); margin-bottom: 20px;">
+            제주에서 즐기자! <span style="color: #0486F6;">다양한 행사</span>
+          </h2>
+          <h2 class="fw-bold animate fade-in-left d-block d-md-none mb-2" style="font-size: clamp(2rem, 5vw, 50px);">
+            제주에서 즐기자!
+          </h2>
+          <h2 class="fw-bold animate fade-in-left d-block d-md-none" style="font-size: clamp(2rem, 5vw, 50px); margin-bottom: 20px;">
+             <span style="color: #0486F6;">다양한 행사</span>
+          </h2>
+        </div>
+        <div>
+          <p class="text-muted animate fade-in-up d-none d-md-block" style="font-size:clamp(1.25rem, 2.5vw, 15px);">제주에서 제대로 힐링하는 법</p>
+          <p class="text-muted animate fade-in-up d-block d-md-none" style="font-size:clamp(1rem, 2.5vw, 15px)">제주에서 제대로 힐링하는 법</p>
+        </div>
+
+      </div>
+      <div class="row g-3 g-mb-5 justify-content-center">
+        <!-- 카드 1 -->
+        <div class="col-6 col-md-3 col-lg-3 d-flex justify-content-center animate fade-in-up delay-1">
+          <div class="card h-100 border-0 text-start" style="width: 210px;">
+            <img src="./img/fe1.png" alt="구울페 포스터" class="card-img-top mx-auto rounded-0" style="width: 210px; height: 295px; object-fit: cover;">
+            <div class="card-body px-0 pt-4">
+              <small style="font-size: 13px; color: #79C9CC;">유럽형 음악회 구울페스티벌</small>
+              <h6 class="fw-bold mt-2 mb-2" style="font-size: 18px; padding-top: 20px;">구팔일 올데이 페스티벌</h6>
+              <p class="text-muted small" style="padding-bottom: 44px;">2023. 11. 02 ~ 11. 04</p>
+              <div class="text-end">
+                <a href="#" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-between custom-btn rounded-0">
+                  <span class="me-2">VIEW MORE</span>
+                  <span class="bg-primary rounded-circle d-flex align-items-center justify-content-center icon-circle" style="padding-top: 2px;">
+                    <i class="bi bi-arrow-right text-white"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 2 -->
+        <div class="col-6 col-md-3 col-lg-3 d-flex justify-content-center animate fade-in-up delay-2">
+          <div class="card h-100 border-0 text-start" style="width: 210px;">
+            <img src="./img/fe2.png" alt="서복은 처음이지 포스터" class="card-img-top mx-auto rounded-0" style="width: 210px; height: 295px; object-fit: cover;">
+            <div class="card-body px-0 pt-4">
+              <small style="font-size: 13px; color: #79C9CC;">어서와 제주관광은 처음이지?</small>
+              <h6 class="fw-bold mt-2 mb-2" style="font-size: 18px; padding-top: 20px;">서복은 처음이지?</h6>
+              <p class="text-muted small" style="padding-bottom: 44px;">2023. 04. 29 ~ 08. 26</p>
+              <div class="text-end">
+                <a href="#" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-between custom-btn rounded-0">
+                  <span class="me-2">VIEW MORE</span>
+                  <span class="bg-primary rounded-circle d-flex align-items-center justify-content-center icon-circle" style="padding-top: 2px;">
+                    <i class="bi bi-arrow-right text-white"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 3 -->
+        <div class="col-6 col-md-3 col-lg-3 d-flex justify-content-center animate fade-in-up delay-3">
+          <div class="card h-100 border-0 text-start" style="width: 210px;">
+            <img src="./img/fe3.png" alt="필터페스티벌 포스터" class="card-img-top mx-auto rounded-0" style="width: 210px; height: 295px; object-fit: cover;">
+            <div class="card-body px-0 pt-4">
+              <small style="font-size: 13px; color: #79C9CC;">비대면 자연 속 음악 축제</small>
+              <h6 class="fw-bold mt-2 mb-2" style="font-size: 18px; padding-top: 20px;">FILTER FESTIVAL</h6>
+              <p class="text-muted small" style="padding-bottom: 44px;">2023. 04. 29 ~ 08. 26</p>
+              <div class="text-end">
+                <a href="#" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-between custom-btn rounded-0">
+                  <span class="me-2">VIEW MORE</span>
+                  <span class="bg-primary rounded-circle d-flex align-items-center justify-content-center icon-circle" style="padding-top: 2px;">
+                    <i class="bi bi-arrow-right text-white"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 4 -->
+        <div class="col-6 col-md-3 col-lg-3 d-flex justify-content-center animate fade-in-up delay-4">
+          <div class="card h-100 border-0 text-start" style="width: 210px;">
+            <img src="./img/fe4.png" alt="올레걷기축제 포스터" class="card-img-top mx-auto rounded-0" style="width: 210px; height: 295px; object-fit: cover;">
+            <div class="card-body px-0 pt-4">
+              <small style="font-size: 13px; color: #79C9CC;">자연 속에서 함께 걷는 축제</small>
+              <h6 class="fw-bold mt-2 mb-2" style="font-size: 18px; padding-top: 20px;">2023 제주 올레 걷기축제</h6>
+              <p class="text-muted small" style="padding-bottom: 44px;">2023. 07. 08 ~ 07. 30</p>
+              <div class="text-end">
+                <a href="#" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-between custom-btn rounded-0">
+                  <span class="me-2">VIEW MORE</span>
+                  <span class="bg-primary rounded-circle d-flex align-items-center justify-content-center icon-circle" style="padding-top: 2px;">
+                    <i class="bi bi-arrow-right text-white"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- section5 --> 
+  <section class="section bg-white" style="
+  padding-top: 112px; 
+  padding-bottom: 112px; 
+  background-image: url('./img/bg2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+">
+    <div class="container" style="max-width: 1100px;">
+      <!-- 타이틀 -->
+      <div class="sns_b d-flex justify-content-between align-items-end flex-wrap" style="margin-bottom: 80px;">
+        <!-- 왼쪽 텍스트 (제목 + 설명) -->
+        <div class="d-flex align-items-end flex-wrap">
+          <div>
+            <h2 class="d-none d-md-block fw-bold mb-0 me-4 animate fade-in-left" style="font-size: clamp(2rem, 5vw, 50px); font-family: 'GangwonEduPowerExtraBoldA'; white-space: nowrap;">
+              <span style="color: #0486F6;">SNS</span>로 만나는 제주
+            </h2>
+            <h2 class="d-block d-md-none fw-bold mb-2 me-4 animate fade-in-left" style="font-size: clamp(2rem, 5vw, 50px); font-family: 'GangwonEduPowerExtraBoldA'; white-space: nowrap;">
+              <span style="color: #0486F6;">SNS</span>로 만나는 제주
+            </h2>
+          </div>
+          <div>
+            <p class="d-none d-md-block text-muted mb-1 animate fade-in-up" style="font-size:clamp(1.25rem, 2.5vw, 15px); font-family: 'Pretendard'; white-space: nowrap;">
+              SNS로 만나는 제주, 그 특별한 매력!
+            </p>
+            <p class="d-block d-md-none text-muted mb-1 animate fade-in-up" style="font-size: clamp(1rem, 2.5vw, 15px);font-family: 'Pretendard'; white-space: nowrap;">
+              SNS로 만나는 제주, 그 특별한 매력!
+            </p>
+          </div>
+         
+          
+        </div>
+      
+        <!-- 오른쪽 더보기 버튼 (PC용) -->
+        <a href="#" class="text-primary fw-semibold d-none d-md-flex align-items-center ms-3" style="white-space: nowrap;">
+          더보기 <i class="bi bi-arrow-right-circle-fill ms-1"></i>
+        </a>
+      
+        <!-- 모바일용 더보기 버튼 -->
+        <div class="w-100 d-md-none mt-3 text-end">
+          <a href="#" class="text-primary fw-semibold d-inline-flex align-items-center">
+            더보기 <i class="bi bi-arrow-right-circle-fill ms-1"></i>
+          </a>
+        </div>
+      </div>
+  
+      <!-- SNS 카드 영역 -->
+      <div class="row g-3">
+        <!-- 이미지 카드 1 -->
+        <div class="col-6 col-md-3">
+          <div class="position-relative rounded overflow-hidden sns-hover-box" style="height: 146px;cursor: pointer;">
+            <img src="./img/sns1.png" class="img-fluid rounded w-100 h-100" style="object-fit: cover;" alt="썸네일1">
+            <div class="sns-caption">
+              <small>김씨, 강씨 가족과 함께한</small><br>
+              <strong>제주 모험가의 하루</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- 이미지 카드 2 -->
+        <div class="col-6 col-md-3">
+          <div class="position-relative rounded overflow-hidden sns-hover-box" style="height: 146px;cursor: pointer;">
+            <img src="./img/sns2.png" class="img-fluid rounded w-100 h-100" style="object-fit: cover;" alt="썸네일2">
+            <div class="sns-caption">
+              <small>김씨, 강씨 가족과 함께한</small><br>
+              <strong>제주 모험가의 하루</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- 이미지 카드 3 -->
+        <div class="col-6 col-md-3">
+          <div class="position-relative rounded overflow-hidden sns-hover-box" style="height: 146px;cursor: pointer;">
+            <img src="./img/sns3.png" class="img-fluid rounded w-100 h-100" style="object-fit: cover;" alt="썸네일3">
+            <div class="sns-caption">
+              <small>김씨, 강씨 가족과 함께한</small><br>
+              <strong>제주 모험가의 하루</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- 텍스트 카드-->
+        <div class="col-6 col-md-3 d-none d-md-block">
+          <div class="p-3 rounded h-100 d-flex flex-column justify-content-center" style="height: 146px;">
+            <div class="d-flex flex-column text-muted mb-2" style="font-size: 18px;">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <p class="text-dark text-start mb-0" style="font-size: 0.95rem;">
+              제주 곳곳의<br>
+              숨은 매력을 SNS에서 찾아보세요.
+            </p>
+          </div>
+        </div>
+
+        <!-- 이미지 카드 4 -->
+        <div class="col-6 col-md-3 mt-2 mt-md-custom">
+          <div class="position-relative rounded overflow-hidden sns-hover-box" style="height: 146px;cursor: pointer;">
+            <img src="./img/sns1.png" class="img-fluid rounded w-100 h-100" style="object-fit: cover;" alt="썸네일4">
+            <div class="sns-caption">
+              <small>김씨, 강씨 가족과 함께한</small><br>
+              <strong>제주 모험가의 하루</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- 텍스트 카드 -->
+        <div class="col-6 col-md-3 d-none d-md-block mt-md-custom">
+          <div class="p-3 rounded h-100 d-flex flex-column justify-content-center" style="height: 146px;cursor: pointer;">
+            <div class="d-flex flex-column text-muted mb-2" style="font-size: 18px;">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <p class="text-dark text-start mb-0" style="font-size: 0.95rem;">
+              제주 곳곳의<br>
+              숨은 매력을 SNS에서 찾아보세요.
+            </p>
+          </div>
+        </div>
+        <!-- 이미지 카드 5 -->
+        <div class="col-6 col-md-3 mt-2 mt-md-custom">
+          <div class="position-relative rounded overflow-hidden sns-hover-box" style="height: 146px;cursor: pointer;">
+            <img src="./img/sns2.png" class="img-fluid rounded w-100 h-100" style="object-fit: cover;" alt="썸네일5">
+            <div class="sns-caption">
+              <small>김씨, 강씨 가족과 함께한</small><br>
+              <strong>제주 모험가의 하루</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- 이미지 카드 6 -->
+        <div class="col-6 col-md-3 mt-2 mt-md-custom">
+          <div class="position-relative rounded overflow-hidden sns-hover-box" style="height: 146px; cursor: pointer;">
+            <img src="./img/sns3.png" class="img-fluid rounded w-100 h-100 " style="object-fit: cover;" alt="썸네일6">
+            <div class="sns-caption">
+              <small>김씨, 강씨 가족과 함께한</small><br>
+              <strong>제주 모험가의 하루</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer style="background-color: #333333; height: 386px;">
+    <div class="mx-2 mx-md-auto text-white" style="max-width: 1100px; padding-top: 100px; padding-bottom: 100px;">
+      <div class="row">
+        <div class="col-md-8">
+          <h5 class="fw-bold" style="font-size: 35px; padding-bottom: 19px;">TRPVISIT</h5>
+          <div style="font-size: 18px; padding-bottom: 26px;">
+            <a href="#" class="text-decoration-none me-3" style="color: #79C9CC;">개인정보처리방침</a>
+            <a href="#" class="text-white text-decoration-none">|     
+                서비스 이용약관</a>
+          </div>
+          <p class="mb-1"  style="font-size: 18px;padding-bottom: 18px; color: #BFBFBF;">(주)서울시 도봉구 방학동 마들로 403호</p>
+          <p class="mb-0" style="font-size: 18px;padding-bottom: 18px;color: #BFBFBF;">대표이사 : 홍길동  개인정보 책임자 : 홍길동 사업자  등록번호 : 000-123-2345</p>
+        
+          <p class="mb-2" style="font-size: 18px;color: #565656;">COPYRIGHT 2023 Plateer Inc. ALL RIGHTS RESERVED.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    $(window).on("scroll", function () {
+      $(".section").each(function () {
+        var sectionTop = $(this).offset().top;
+        var scrollTop = $(window).scrollTop();
+        var windowHeight = $(window).height();
+    
+        if (scrollTop + windowHeight > sectionTop + 100) {
+          $(this).addClass("active"); // 섹션에 active
+    
+          // 내부 애니메이션 요소 처리
+          $(this).find(".animate").each(function () {
+            $(this).addClass("active");
+          });
+        }
+      });
+    });
+    </script>
+</body>
+</html>

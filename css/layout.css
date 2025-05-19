@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+/*레이아웃 서식 header,main,footer 공통 서식*/
+
+/*헤더서식*/
+header{
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;height: 70px;
+    position: fixed;
+    z-index: 1000;
+}
+header>h1>a{
+    border: 4px solid rgba(230, 2, 2, 0.938);
+    color: rgba(230, 2, 2, 0.938);
+    border-radius: 20px;
+    padding: 5px 20px;
+    position: absolute;
+    left: 20px;top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+nav{
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+    top: 20px;
+}
+.gnb{
+    display: flex;
+    justify-content: space-evenly;
+}
+.gnb>li>a{
+    font-size: 20px;
+}
+header>img{
+    width: 300px;
+    position: absolute;
+    right: -300px;
+
+}
+/*푸터서식*/

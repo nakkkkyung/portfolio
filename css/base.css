@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* 강원체 */
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('/font/강원교육튼튼.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  /* 프리텐다드 - Medium */
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('/font/Pretendard-Medium.woff') format('woff');
+    font-style: normal;
+  }
+  
+  /* 프리텐다드 - Bold */
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('/font/Pretendard-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+/*모든 페이지에 공통으로 적용되는 서식*/
+:root{
+   
+}
+body{
+    font-family: 'Pretendard' , sans-serif;
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+
